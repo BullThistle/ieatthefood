@@ -1,5 +1,6 @@
 import React from 'react';
-import {geolocated} from 'react-geolocated';
+import { geolocated } from 'react-geolocated';
+import Recommendation from './Recommendation.js';
 
 class Geolocater extends React.Component {
   render() {
@@ -8,12 +9,11 @@ class Geolocater extends React.Component {
       : !this.props.isGeolocationEnabled
         ? <div>Geolocation is not enabled</div>
         : this.props.coords
-          ? <table>
-            <tbody>
-              <tr><td>latitude</td><td>{this.props.coords.latitude}</td></tr>
-              <tr><td>longitude</td><td>{this.props.coords.longitude}</td></tr>
-            </tbody>
-          </table>
+          ? 
+          <Recommendation
+            latitude={this.props.coords.latitude}
+            longitude={this.props.coords.longitude}
+          />
           : <div>Getting the location data&hellip; </div>;
   }
 }

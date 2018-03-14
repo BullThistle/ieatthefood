@@ -1,21 +1,16 @@
 {
   "name": "ieatthefood",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "mapbox-gl": "^0.44.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-geolocated": "^2.3.0",
-    "react-mapbox-gl": "^3.8.0",
-    "react-scripts": "1.1.1",
-    "semantic-ui-css": "^2.3.0",
-    "semantic-ui-react": "^0.78.3"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
   }
 }
