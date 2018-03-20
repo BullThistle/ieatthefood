@@ -1,17 +1,19 @@
 const express = require('express');
 const axios = require('axios');
-const keys = require ('./keys.js');
+
+require('dotenv').load();
+const YELPKEY = process.env.REACT_APP_YELP_ACCESS_KEY;
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.get('/api/restaurant', (req, res, next) => {
-  console.log(req.query);
+  console.log("yelpkey is", YELPKEY);
   axios({
     method: 'get',
     url: 'https://api.yelp.com/v3/businesses/search',
     headers: {
-      Authorization: `Bearer ${keys.YELPKEY}`
+      Authorization: `Bearer ${YELPKEY}`
     },
     params: {
       latitude: req.query.latitude,
